@@ -4,4 +4,7 @@ class Exercise < ActiveRecord::Base
   has_many :exercise_sets
   belongs_to :gymnastic
   belongs_to :workout
+
+  acts_as_api
+  include ApiV1::Exercise
 end
