@@ -4,7 +4,14 @@ class WorkoutsController < ApplicationController
   before_filter :has_access?, only: [:edit, :update, :destroy]
 
   def index
-    @workouts = current_user.workouts
+    @workouts = current_user.workouts.order("date desc")
+
+    respond_to do |format|
+      format.html { render }
+      format.json {
+        render_for_api :full, json: @workouts
+      }
+    end
   end
 
   def show
