@@ -1,0 +1,11 @@
+%br
+.exercise
+  .name
+    = exercise.gymnastic.name
+  %ul.sets
+    - exercise.exercise_sets.each do |set|
+      %li.set
+        .weight
+          = set.weight
+        .repeats
+          = set.repeats

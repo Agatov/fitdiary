@@ -5,5 +5,8 @@
         .workout
           .title
             = l workout.date, format: :workout_title
+          .exercises
+            - workout.exercises.each do |exercise|
+              = render partial: 'exercises/exercise', locals: {exercise: exercise}
 
   .four.columns
