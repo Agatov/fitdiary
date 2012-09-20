@@ -1,7 +1,7 @@
-%br
 .exercise
   .name
     = exercise.gymnastic.name
+    = link_to 'ред.', edit_exercise_path(exercise)
   %ul.sets
     - exercise.exercise_sets.each do |set|
       %li.set
