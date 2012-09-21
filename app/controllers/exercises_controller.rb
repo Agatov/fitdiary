@@ -18,10 +18,25 @@ class ExercisesController < ApplicationController
   end
 
   def update
-    if @exercise.update_attributes(params[:exercise])
-      redirect_to root_path
-    else
-      render :edit
+    respond_to do |format|
+      if @exercise.update_attributes(params[:exercise])
+        format.html {
+          redirect_to root_path
+        }
+
+        format.json {
+          render json: {status: :ok}
+        }
+        
+      else
+        format.html {
+          render :edit
+        }
+
+        format.json {
+          rnder json: {status: :error}
+        }
+      end
     end
   end
 
