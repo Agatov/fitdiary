@@ -1,6 +1,6 @@
 class window.Model
 
-  constructor: (options = {})
+  constructor: (options = {}) ->
 
     if options.data
       @data = options.data
@@ -15,3 +15,25 @@ class window.Model
 
   initialize_attrs: ->
     @attrs = {id: null}
+
+  get: (id) ->
+
+    _this = @
+
+    $.get(
+      @url(id),
+      (data) ->
+        if data.status == 'ok'
+          _this.fetch(data)
+        
+    )
+
+  fetch: (data) ->
+    _.each(@attrs, (value, key) ->
+      if data[@name][key]
+        @attrs[key] = value
+    )
+
+
+  url: (id) ->
+    

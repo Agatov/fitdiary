@@ -1,5 +1,9 @@
-class window.Exercise
+class window.Exercise extends Model
+
+  url: (id) ->
+    return "/exercises/#{id}.json"
   
+  ###
   constructor: (data, collection) ->
 
     @attrs =  {
@@ -13,13 +17,16 @@ class window.Exercise
     @collection = collection
     @exercise_sets_collection = null
     @initialize(data)
+  ###
 
   initialize: (data) ->
-    @attrs.id = data.id
-    @attrs.gymnastic.id = data.gymnastic.id
-    @attrs.gymnastic.name = data.gymnastic.name
+    #@attrs.id = data.id
+    #@attrs.gymnastic.id = data.gymnastic.id
+    #@attrs.gymnastic.name = data.gymnastic.name
 
-    @exercise_sets_collection = new ExerciseSetsCollection(data.exercise_sets, @)
+    #@exercise_sets_collection = new ExerciseSetsCollection(data.exercise_sets, @)
+
+    @name = "exercise"
 
 
 

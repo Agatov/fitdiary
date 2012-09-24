@@ -6,6 +6,11 @@ class ExercisesController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.json {
+        render_for_api :full, json: @exercise, meta: {status: :ok}
+      }
+    end
   end
 
   def new
