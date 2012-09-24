@@ -4,12 +4,12 @@ class WorkoutsController < ApplicationController
   before_filter :has_access?, only: [:edit, :update, :destroy]
 
   def index
-    @workouts = current_user.workouts.order("date desc")
+    @workouts = current_user.workouts.includes(exercises: :exercise_sets)
 
     respond_to do |format|
       format.html { render }
       format.json {
-        render_for_api :full, json: @workouts
+        render_for_api :full, json: @workouts, meta: {status: :ok}
       }
     end
   end
