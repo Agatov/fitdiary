@@ -1,12 +1,15 @@
-.row
-  .eight.columns
-    #workouts
-      - @workouts.each do |workout|
-        .workout
-          .title
-            = l workout.date, format: :workout_title
-          .exercises
-            - workout.exercises.each do |exercise|
-              = render partial: 'exercises/exercise', locals: {exercise: exercise}
 
-  .four.columns
+
+-#
+  .row
+    .eight.columns
+      #workouts
+        - @workouts.each do |workout|
+          .workout
+            .title
+              = l workout.date, format: :workout_title
+            .exercises
+              - workout.exercises.each do |exercise|
+                = render partial: 'exercises/exercise', locals: {exercise: exercise}
+
+    .four.columns
