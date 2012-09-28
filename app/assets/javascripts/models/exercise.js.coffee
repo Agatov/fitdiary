@@ -19,14 +19,17 @@ class window.Exercise extends Model
     @initialize(data)
   ###
 
-  initialize: (data) ->
+  initialize: ->
     #@attrs.id = data.id
     #@attrs.gymnastic.id = data.gymnastic.id
     #@attrs.gymnastic.name = data.gymnastic.name
 
     #@exercise_sets_collection = new ExerciseSetsCollection(data.exercise_sets, @)
 
-    @name = "exercise"
+    @model_name = "exercise"
+    @collections = {
+      exercise_sets: new ExerciseSetsCollection()
+    }
 
 
 

@@ -1,15 +1,12 @@
-class window.ExerciseSet
+class window.ExerciseSet extends Model
 
-  constructor: (data, collection) ->
+  initialize: ->
 
+
+  initialize_attrs: ->
+    super
     @attrs = {
       id: null,
       weight: null,
       repeats: null,
     }
-
-    @collection = collection
-    @initialize(data)
-
-
-  initialize: (data) ->
