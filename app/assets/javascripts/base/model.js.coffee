@@ -9,16 +9,20 @@ class window.Model
       @parent = options.parent
 
 
-
     @initialize_attrs()
 
     @initialize()
 
 
-  initialize_attrs: ->
-    @attrs = {id: null}
+  initialize_attrs: (attrs = {}) ->
+
+    if attrs
+      @attrs = attrs
+      @attrs["id"] = null
+    else
+      @attrs = {id: null}
+    
     @collections = {}
-    @model_name = ""
 
   get: (id) ->
 
@@ -27,14 +31,14 @@ class window.Model
     $.get(
       @url(id),
       (data) ->
-        if data.status == 'ok'
+        unless data.status
           _this.fetch(data)
         
     )
 
   fetch: (data) ->
     _this = @
-    _.each(data[@model_name], (value, key) ->
+    _.each(data, (value, key) ->
       console.log("#{key} / #{value}")
       if _this.attrs[key] or _this.attrs[key] == null
         _this.attrs[key] = value

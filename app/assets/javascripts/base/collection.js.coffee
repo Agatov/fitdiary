@@ -18,6 +18,16 @@ class window.Collection
 
 
 
+  get: ->
+    _this = @
+
+    $.get(
+      @url(),
+      (data) ->
+        unless data.status
+          _this.fetch(data)
+    )
+
   fetch: (resources_array) ->
     @fetch_resource(resource) for resource in resources_array
 

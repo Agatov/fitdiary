@@ -1,4 +1,4 @@
 class window.ExerciseSetsCollection extends Collection
   
-  initialize: (data) ->
+  initialize: ->
     @resource_model_name = "ExerciseSet"
