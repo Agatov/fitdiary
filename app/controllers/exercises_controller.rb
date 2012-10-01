@@ -8,7 +8,7 @@ class ExercisesController < ApplicationController
   def show
     respond_to do |format|
       format.json {
-        render_for_api :full, json: @exercise, meta: {status: :ok}
+        render_for_api :full, json: @exercise
       }
     end
   end

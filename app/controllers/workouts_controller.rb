@@ -9,7 +9,7 @@ class WorkoutsController < ApplicationController
     respond_to do |format|
       format.html { render }
       format.json {
-        render_for_api :full, json: @workouts, meta: {status: :ok}
+        render_for_api :full, json: @workouts
       }
     end
   end
