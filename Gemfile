@@ -14,9 +14,6 @@ group :development do
   gem 'capistrano'
 end
 
-gem 'jquery-rails'
-gem 'underscore-rails'
-
 gem 'sqlite3'
 gem 'mysql2',  :git => 'http://github.com/brianmario/mysql2.git'
 gem 'haml-rails'
