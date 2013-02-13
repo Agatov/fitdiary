@@ -20,3 +20,4 @@ config/database.yml
 db/sphinx
 config/development.sphinx.conf
 .idea
+*.DS_Store
