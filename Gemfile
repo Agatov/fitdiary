@@ -6,16 +6,12 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  
-  gem 'compass-rails', '~> 1.0.3'
   gem 'bourbon'
-  gem 'zurb-foundation', '~> 3.1.0'
-  gem 'sassy-buttons'
 end
 
 group :development do
-  gem "thin"
-  gem "capistrano"
+  gem 'thin'
+  gem 'capistrano'
 end
 
 gem 'jquery-rails'
@@ -29,8 +25,8 @@ gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 
 gem 'kaminari'
 
-gem "rmagick"
-gem "carrierwave"
+gem 'rmagick'
+gem 'carrierwave'
 
 gem 'simple_enum', :git => 'git://github.com/lwe/simple_enum.git'
 gem 'acts_as_api', :git => 'git://github.com/fabrik42/acts_as_api.git'
