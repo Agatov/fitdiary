@@ -19,13 +19,11 @@ class window.Collection
 
 
   get: ->
-    _this = @
-
     $.get(
       @url(),
-      (data) ->
+      (data) =>
         unless data.status
-          _this.fetch(data)
+          @.fetch(data)
     )
 
   fetch: (resources_array) ->

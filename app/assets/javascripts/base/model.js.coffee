@@ -9,7 +9,7 @@ class window.Model
       @parent = options.parent
 
 
-    @initialize_attrs()
+    @initialize_attrs
 
     @initialize()
 
@@ -37,13 +37,12 @@ class window.Model
     )
 
   fetch: (data) ->
-    _this = @
-    _.each(data, (value, key) ->
+    _.each(data, (value, key) =>
       console.log("#{key} / #{value}")
-      if _this.attrs[key] or _this.attrs[key] == null
-        _this.attrs[key] = value
-      else if _this.collections[key]
-        _this.collections[key].fetch(value)
+      if @.attrs[key] or @.attrs[key] == null
+        @.attrs[key] = value
+      else if @.collections[key]
+        @.collections[key].fetch(value)
     )
 
 

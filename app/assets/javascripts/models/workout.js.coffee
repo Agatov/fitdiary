@@ -1,11 +1,12 @@
-class window.Workout
+class window.Workout extends Model
 
   url: (id) ->
     return "/exercises/#{id}.json"
 
   initialize: ->
+    console.log('initializing workout collections')
     @collections = {
-      exercise_sets: new ExerciseSetsCollection()
+      exercises: new ExercisesCollection()
     }
 
     @initialize_attrs({
