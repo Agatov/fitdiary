@@ -19,3 +19,4 @@ db/schema.rb
 config/database.yml
 db/sphinx
 config/development.sphinx.conf
+.idea
