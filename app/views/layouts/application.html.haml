@@ -5,15 +5,4 @@
     = csrf_meta_tags
     = javascript_include_tag "application"
   %body
-    %nav.top-bar
-      %ul
-        %li.name
-          %h1
-            %a{href: '#'}
-              NoName
-      %section
-        %ul.right
-          %li
-            %a{href: '#'}
-              = current_user.first_name
-  = yield
+    = yield
