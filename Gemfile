@@ -7,6 +7,8 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'bourbon'
+  gem 'haml_coffee_assets'
+  gem 'execjs'
 end
 
 group :development do

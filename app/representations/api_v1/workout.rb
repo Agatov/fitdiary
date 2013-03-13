@@ -4,6 +4,8 @@ module ApiV1::Workout
 
     api_accessible :full do |template|
       template.add :id
+      template.add :date
+      template.add :exercises, template: :full
     end
 
   end

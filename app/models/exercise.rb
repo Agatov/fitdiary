@@ -10,4 +10,8 @@ class Exercise < ActiveRecord::Base
 
   acts_as_api
   include ApiV1::Exercise
+
+  def gymnastic_name
+    gymnastic.name
+  end
 end

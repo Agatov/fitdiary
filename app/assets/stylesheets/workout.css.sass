@@ -3,15 +3,17 @@
   text-align: center
   background: #333
   color: #fff
-  font-weight: bold
-  padding-top: 1px
+  font-weight: 200
 
 #workouts
+  margin-top: 80px
   .workout
     width: 630px
     padding: 20px
+    margin: 0px auto
     margin-bottom: 20px
-    background: #ececec
+    background: #f2f2f2
+
 
     .title
       width: 590px
@@ -19,37 +21,41 @@
       text-align: right
       padding-bottom: 5px
       margin-bottom: 10px
-      border-bottom: 1px solid #ccc
+      border-bottom: 1px solid #ddd
 
 
-    .exercises
-      width: 590px
-      .exercise
-        margin-bottom: 10px
-        display: block
-        .name
-          height: 30px
-          font-size: 16px
-        .sets
-          margin-left: 0px
-          list-style: none
-          &:after
-            display: table
-            content: ""
-            clear: both
-          .set
-            float: left
-            padding: 5px
-            margin-right: 5px
-            .weight
-              width: 45px
-              height: 25px
-              margin-right: 2px
-              @include border-radius(5px 0 0 5px)
-              @include set_info
-              
-            .repeats
-              width: 20px
-              height: 25px
-              @include border-radius(0 5px 5px 0)
-              @include set_info
+    .body
+      .exercises
+        width: 590px
+        .exercise
+          padding-bottom: 10px
+          margin-bottom: 10px
+          display: block
+          border-bottom: 1px solid #ddd
+          .name
+            height: 30px
+            font-size: 16px
+          .sets
+            margin-left: 0px
+            list-style: none
+            &:after
+              display: table
+              content: ""
+              clear: both
+            .set
+              float: left
+              margin-right: 5px
+              .weight
+                width: 45px
+                height: 25px
+                line-height: 25px
+                margin-right: 2px
+                @include border-radius(5px 0 0 5px)
+                @include set_info
+
+              .repeats
+                width: 20px
+                height: 25px
+                line-height: 25px
+                @include border-radius(0 5px 5px 0)
+                @include set_info
