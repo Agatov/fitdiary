@@ -1,4 +1,4 @@
 class Fitdiary.ExercisesView extends Backbone.Marionette.CollectionView
-  itemView: Fitdiary.ExerciseView
+  itemView: Fitdiary.ExerciseContainerView
   emptyView: Fitdiary.NoExercisesView
   className: 'exercises'

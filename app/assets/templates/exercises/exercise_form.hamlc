@@ -1,0 +1,9 @@
+%input{type: 'text', name: 'gymnastic_name', value: @gymnastic_name}
+
+.sets-form
+
+.add-set
+  добавить подход
+
+%button.save
+  Сохранить

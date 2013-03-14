@@ -1,0 +1,3 @@
+%input{type: 'text', name: 'weight', size: '10', value: @weight}
+x
+%input{type: 'text', name: 'repeats', size: '10', value: @repeats}
