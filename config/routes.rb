@@ -3,8 +3,10 @@ Fitdiary::Application.routes.draw do
   root to: "workouts#index"
 
   resources :workouts
-  resources :exercises
-  resources :sets
+  resources :exercises do
+    resources :sets
+  end
+
 
   resources :gymnastics
   resources :users

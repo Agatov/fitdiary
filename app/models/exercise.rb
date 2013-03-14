@@ -14,4 +14,8 @@ class Exercise < ActiveRecord::Base
   def gymnastic_name
     gymnastic.name
   end
+
+  def add_set(weight, repeats)
+    exercise_sets.create(weight: weight, repeats: repeats)
+  end
 end
