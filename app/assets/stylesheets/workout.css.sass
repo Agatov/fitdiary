@@ -3,10 +3,11 @@
   height: 20px
   line-height: 20px
   text-align: center
-  background: #333
+  background: #14b9d6
   font-size: 13px
   color: #fff
-  font-weight: 200
+  font-weight: 600
+  letter-spacing: 1px
   padding: 0px 5px
 
 #workouts
@@ -14,16 +15,20 @@
   .workout
     width: 630px
     margin: 0px auto
-    margin-bottom: 20px
-    background: #f2f2f2
+    margin-bottom: 50px
+    background: #fff
+    //box-shadow: 0 0 7px 2px #e6e6e6
+    color: #5e6d81
 
 
     .title
       width: 590px
       font-size: 18px
-      text-align: right
+      text-align: center
       padding: 10px 20px
-      border-bottom: 1px solid #ddd
+      background: #323a45
+      color: #f1f1f3
+      border-radius: 1px 1px 0 0
 
 
     .body
@@ -31,17 +36,18 @@
         width: 630px
 
         .exercise-container
-          border-bottom: 1px solid #ddd
+          border-bottom: 1px solid #eaedf1
 
           .exercise
             padding: 10px 20px
             display: block
             position: relative
             &:hover
-              background: #fcfcfc
+              background: #f9fafc
             .name
               height: 30px
               font-size: 16px
+              font-weight: 400
             .sets
               margin-left: 0px
               list-style: none
@@ -53,12 +59,12 @@
                 float: left
                 margin-right: 5px
                 .weight
-                  border-right: 1px solid #ddd
-                  @include border-radius(5px 0 0 5px)
+                  border-right: 1px solid #fcfcfc
+                  //@include border-radius(5px 0 0 5px)
                   @include set_info
 
                 .repeats
-                  @include border-radius(0 5px 5px 0)
+                  //@include border-radius(0 5px 5px 0)
                   @include set_info
 
             .actions
@@ -74,3 +80,82 @@
               .delete
                 font-size: 12px
                 color: #666
+
+
+          .exercise-form
+
+
+            .exercise-form
+              padding: 10px 20px
+
+              input
+                width: 580px
+                font-size: 15px
+                padding: 5px
+                border: 1px solid #f2f2f2
+
+
+              .sets-form
+                margin-top: 15px
+                .row
+                  font-size: 10px
+                  height: 45px
+                  line-height: 45px
+                  padding: 0px 15px
+
+                  &:nth-child(odd)
+                    background: #f9fafc
+
+                  input
+                    width: 50px
+                    text-align: center
+                    font-size: 13px
+                    border: 1px solid #f2f2f2
+                    font-weight: 100
+                    color: #333
+                  a
+                    color: #239ed9
+                    text-decoration: none
+                    font-size: 14px
+                    float: right
+
+
+              .buttons
+                margin-top: 20px
+                height: 50px
+
+                .button
+                  float: left
+                  margin-right: 5px
+                  width: 190px
+                  height: 40px
+                  line-height: 40px
+                  text-align: center
+                  background: #f27935
+                  font-size: 14px
+                  font-weight: 200
+                  color: #fff
+                  cursor: pointer
+
+                  &:hover
+                    background: #ff8038
+
+                  &.add-set
+                    background: #1fbba6
+                    &:hover
+                      background: #27d4bd
+
+                  &.delete
+                    background: #c80a05
+                    margin-right: 0px
+
+
+    .footer
+      height: 25px
+      line-height: 25px
+      border-top: 0px solid #eaeaea
+      background: #f9fafc
+      cursor: pointer
+      font-size: 12px
+      color: #5e6d81
+      text-align: center

@@ -2,8 +2,16 @@
 
 .sets-form
 
-.add-set
-  добавить подход
+.buttons
+  .button.add-set
+    Добавить подход
 
-%button.save
-  Сохранить
+  .button.save
+    Сохранить
+
+  .button.delete
+    Удалить
+
+
+
+

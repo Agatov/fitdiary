@@ -10,31 +10,49 @@ class Fitdiary.ExerciseContainerView extends Backbone.Marionette.Layout
   events: {
     'click .exercise .actions .edit': 'show_edit_form',
     'click .exercise .actions .delete': 'show_delete_confirmation',
-    'click .exercise-form .save': 'save_exercise',
+    'click .exercise-form .buttons .save': 'save_exercise',
+    # А такой кнопки пока нет.
     'click .exercise-form .cancel': 'cancel_exercise_changes'
   }
 
   initialize: ->
-    @exerciseView = new Fitdiary.ExerciseView({model: @model})
-    @exerciseForm = new Fitdiary.ExerciseForm({model: @model})
+    @exerciseForm = new Fitdiary.ExerciseForm({ model: @model })
+    @exerciseView = new Fitdiary.ExerciseView({ model: @model })
 
 
   onRender: ->
-    @exerciseRegion.show(@exerciseView)
+    if @model.isNew()
+      @exerciseFormRegion.show(@exerciseForm)
+    else
+      @exerciseRegion.show(@exerciseView)
 
 
   show_edit_form: ->
+
     @exerciseRegion.$el.hide()
-    @exerciseFormRegion.show(@exerciseForm)
-    @exerciseFormRegion.$el.show()
+
+    if @exerciseFormRegion.$el
+      @exerciseFormRegion.$el.show()
+    else
+      @exerciseFormRegion.show(@exerciseForm)
+
+
+    false
 
   show_delete_confirmation: ->
+    @
 
   save_exercise: ->
-    @exerciseForm.changeName()
+    @exerciseForm.save()
+
     @exerciseFormRegion.$el.hide()
-    @exerciseView.render()
-    @exerciseRegion.$el.show()
+
+    if @exerciseRegion.$el
+      @exerciseView.render()
+      @exerciseRegion.$el.show()
+    else
+      @exerciseRegion.show(@exerciseView)
+
 
   cancel_exercise_changes: ->
     @

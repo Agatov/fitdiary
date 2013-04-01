@@ -12,12 +12,15 @@ class Fitdiary.ExerciseSetForm extends Backbone.Marionette.ItemView
   }
 
   update: ->
+    @update_attributes()
+    @model.save()
+
+
+  update_attributes: ->
     @model.set({
       weight: @ui.weight.val(),
       repeats: @ui.repeats.val()
     })
-
-    @model.save()
 
   remove: ->
     @model.destroy()

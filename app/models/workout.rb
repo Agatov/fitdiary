@@ -6,4 +6,8 @@ class Workout < ActiveRecord::Base
 
   acts_as_api
   include ApiV1::Workout
+
+  def formatted_date
+    I18n.localize date, format: :workout_title
+  end
 end

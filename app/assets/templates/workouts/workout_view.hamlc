@@ -1,3 +1,6 @@
 .title
-  = @date
+  = @formatted_date
 .body
+
+.footer.add-exercise
+  добавить упражнение

@@ -11,7 +11,7 @@ class Fitdiary.ExerciseForm extends Backbone.Marionette.Layout
   }
 
   events: {
-    'click .add-set': 'add_set'
+    'click .buttons .add-set': 'add_set'
   }
 
   initialize: ->
@@ -20,9 +20,29 @@ class Fitdiary.ExerciseForm extends Backbone.Marionette.Layout
   onRender: ->
     @setsFormRegion.show(@exerciseSetsForm)
 
-  changeName: ->
+  save: ->
+    if !@model.get('id')
+      @create_exercise()
+    else
+      @update_exercise()
+
+
+  create_exercise: ->
     @model.set({gymnastic_name: @ui.gymnastic_name.val()})
+    @exerciseSetsForm.create()
+    @model.prepare_attributes()
+    @model.save(
+      null,
+      {
+      success: (model, response) =>
+        @model.set(response)
+        @model.update_exercise_sets_ids()
+      }
+    )
+
+  update_exercise: ->
     @exerciseSetsForm.update()
 
   add_set: ->
     @exerciseSetsForm.add_set()
+    console.log(@exerciseSetsForm.collection)

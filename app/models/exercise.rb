@@ -1,5 +1,5 @@
 class Exercise < ActiveRecord::Base
-  attr_accessible :comment, :gymnastic_id, :timeout, :workout_id
+  attr_accessible :comment, :gymnastic_id, :gymnastic, :timeout, :workout_id
   attr_accessible :exercise_sets_attributes
 
   has_many :exercise_sets

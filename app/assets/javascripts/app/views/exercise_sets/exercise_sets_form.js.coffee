@@ -6,6 +6,11 @@ class Fitdiary.ExerciseSetsForm extends Backbone.Marionette.CollectionView
       child.update()
     )
 
+  create: ->
+    @children.each((child) ->
+      child.update_attributes()
+    )
+
   add_set: ->
     @collection.add({
       weight: @children.last().ui.weight.val(),
