@@ -3,7 +3,8 @@ class Fitdiary.ExerciseForm extends Backbone.Marionette.Layout
   className: 'exercise-form'
 
   regions: {
-    setsFormRegion: '.sets-form'
+    setsFormRegion: '.sets-form',
+    hintsRegion: '.hints'
   }
 
   ui: {
@@ -12,6 +13,9 @@ class Fitdiary.ExerciseForm extends Backbone.Marionette.Layout
 
   events: {
     'click .buttons .add-set': 'add_set'
+    'focus input ': 'show_hints',
+    'focusout input': 'hide_hints',
+    'keydown input': 'input_keydown'
   }
 
   initialize: ->
@@ -46,3 +50,40 @@ class Fitdiary.ExerciseForm extends Backbone.Marionette.Layout
   add_set: ->
     @exerciseSetsForm.add_set()
     console.log(@exerciseSetsForm.collection)
+
+  show_hints: ->
+    gs = new Fitdiary.Gymnastics
+    gs.fetch()
+
+    @gymnasticHints = new Fitdiary.GymnasticsListView({ collection:  gs})
+    @hintsRegion.show(@gymnasticHints)
+
+    console.log(@gymnasticHints)
+
+  hide_hints: ->
+    @hintsRegion.close()
+
+
+  input_keydown: (e) ->
+    if e.keyCode == 40 #key down
+      @next_hint()
+
+    else if e.keyCode == 38 # key up
+      @prev_hint()
+
+    else if e.keyCode == 13 # Enter
+      @pick_hint()
+
+    else if e.keyCode == 27 # Escape
+      console.log('escape pressed')
+
+
+  next_hint: ->
+    @gymnasticHints.collection.select_next()
+    @ui.gymnastic_name.val(@gymnasticHints.collection.get_selected().get('name'))
+
+
+  prev_hint: ->
+
+  pick_hint: ->
+    @ui.gymnastic_name.val(@gymnasticHints.collection.get_selected().get('name'))

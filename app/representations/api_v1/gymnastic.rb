@@ -4,6 +4,7 @@ module ApiV1::Gymnastic
 
     api_accessible :full do |template|
       template.add :id
+      template.add :name
     end
 
   end

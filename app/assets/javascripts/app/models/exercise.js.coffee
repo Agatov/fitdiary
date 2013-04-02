@@ -17,7 +17,6 @@ class Fitdiary.Exercise extends Backbone.Model
     if exercise_sets
       @exercise_sets = new Fitdiary.ExerciseSets(exercise_sets)
       @exercise_sets.exercise = @
-      console.log(@exercise_sets)
 
 
   update_exercise_sets_ids: ->
