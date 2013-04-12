@@ -1,6 +1,4 @@
 .gymnastic-name
-  %input{type: 'text', name: 'gymnastic_name', value: @gymnastic_name}
-  .hints
 
 .sets-form
 

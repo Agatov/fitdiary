@@ -3,8 +3,3 @@
 .sets
 
 .sets_form
-
-.actions
-  %a.edit{href: '#'} Редактировать
-  %br
-  %a.delete{href: '#'} Удалить
