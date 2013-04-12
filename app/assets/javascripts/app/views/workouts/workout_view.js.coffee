@@ -18,4 +18,4 @@ class Fitdiary.WorkoutView extends Backbone.Marionette.Layout
 
   # Добавляем пустое упражнение с одним подходом
   add_exercise: ->
-    @model.exercises.add({gymnastic_name: 'какое-то упражнение', exercise_sets: [{weight: 0, repeats: 0}]})
+    @model.exercises.add({exercise_sets: [{weight: '', repeats: ''}]})

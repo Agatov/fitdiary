@@ -1,5 +1,14 @@
 class Fitdiary.Gymnastic extends Backbone.Model
 
-  initialize: ->
-    @picked = false
-    @selected = false
+  selected: ->
+    @get('selected')
+
+  not_selected: ->
+    !@get('selected')
+
+  select: ->
+    @set('selected', true)
+
+  unselect: ->
+    @set('selected', false)
+

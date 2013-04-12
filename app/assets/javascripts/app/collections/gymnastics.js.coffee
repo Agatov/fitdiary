@@ -13,24 +13,46 @@ class Fitdiary.Gymnastics extends Backbone.Collection
     @picked_item_key = null
     @selected_item_key = null
 
-  # @todo - отрефакторить этот метод
-  select_next: ->
+  selectNext: ->
 
     if @selected_item_key == null
       @selected_item_key = 0
-      @models[@selected_item_key].set('selected', true)
-    else if @selected_item_key == @models.length - 1
-      @models[@selected_item_key].set('selected', false)
-      @selected_item_key = 0
-      @models[@selected_item_key].set('selected', true)
+
     else
       @models[@selected_item_key].set('selected', false)
-      @selected_item_key += 1
-      @models[@selected_item_key].set('selected', true)
+
+      if @selected_item_key == @models.length - 1
+        @selected_item_key = null
+      else
+        @selected_item_key += 1
+
+    @models[@selected_item_key].set('selected', true) unless @selected_item_key == null
 
 
-  # @todo - реализовать этот метод
-  select_prev: ->
+  selectPrevious: ->
+
+    if @selected_item_key == null
+      @selected_item_key = @models.length - 1
+
+    else
+      @models[@selected_item_key].set('selected', false)
+
+      if @selected_item_key == 0
+        @selected_item_key = null
+      else
+        @selected_item_key -= 1
+
+    @models[@selected_item_key].set('selected', true) unless @selected_item_key == null
+
 
   get_selected: ->
+    return null if @selected_item_key == null
     @models[@selected_item_key]
+
+  select_one: (model_to_select) ->
+    @models[@selected_item_key].unselect() if @selected_item_key != null
+    @selected_item_key = $.inArray(model_to_select, @models)
+    model_to_select.select()
+
+
+

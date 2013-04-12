@@ -8,8 +8,7 @@ class Fitdiary.ExerciseContainerView extends Backbone.Marionette.Layout
   }
 
   events: {
-    'click .exercise .actions .edit': 'show_edit_form',
-    'click .exercise .actions .delete': 'show_delete_confirmation',
+    'click .exercise': 'show_edit_form',
     'click .exercise-form .buttons .save': 'save_exercise',
     # А такой кнопки пока нет.
     'click .exercise-form .cancel': 'cancel_exercise_changes'

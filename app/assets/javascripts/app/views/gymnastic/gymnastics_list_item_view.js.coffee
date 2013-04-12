@@ -6,8 +6,21 @@ class Fitdiary.GymnasticsListItemView extends Backbone.Marionette.ItemView
     'change': 'modelChanged'
   }
 
+  events: {
+    'mouseenter': 'select_model',
+    'click': 'item_click'
+  }
+
   modelChanged: ->
-    if @model.get('selected')
+    if @model.selected()
       @$el.addClass('selected')
-    else if @model.get('selected') == false and @$el.hasClass('selected')
+    else if @model.not_selected() and @$el.hasClass('selected')
       @$el.removeClass('selected')
+
+
+  # @todo - ну говнокод редкостный же.
+  select_model: ->
+    @model.collection.select_one(@model)
+
+  item_click: ->
+    console.log('asdasdasd')
