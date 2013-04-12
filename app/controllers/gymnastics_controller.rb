@@ -1,6 +1,10 @@
 class GymnasticsController < ApplicationController
   def index
-    @gymnastics = Gymnastic.group(:name).order(:id).limit(5)
+    if params[:s]
+      @gymnastics = Gymnastic.order(:name).group(:name).where('name like ?', "%#{params[:s]}%").limit(5)
+    else
+      @gymnastics = Gymnastic.group(:name).order(:id).limit(5)
+    end
 
     respond_to do |format|
       format.json {

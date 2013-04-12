@@ -39,10 +39,12 @@ class ExercisesController < ApplicationController
   end
 
   def update
-    if @exercise.update_attributes(params[:exercise])
-      redirect_to root_path
+    @exercise.gymnastic = Gymnastic.find_or_create_by_name(params[:gymnastic_name])
+    @exercise.attributes = params[:exercise]
+    if @exercise.save
+      render json: {status: :ok}
     else
-      render :edit
+      render json: {status: :error}
     end
   end
 
