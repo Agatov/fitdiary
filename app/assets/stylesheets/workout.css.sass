@@ -42,6 +42,7 @@
             padding: 10px 20px
             display: block
             position: relative
+            cursor: pointer
             &:hover
               background: #f9fafc
             .name
@@ -58,32 +59,15 @@
               .set
                 float: left
                 margin-right: 5px
+                margin-bottom: 5px
                 .weight
                   border-right: 1px solid #fcfcfc
-                  //@include border-radius(5px 0 0 5px)
                   @include set_info
 
                 .repeats
-                  //@include border-radius(0 5px 5px 0)
                   @include set_info
 
-            .actions
-              display: none
-              position: absolute
-              top: 15px
-              right: 15px
-
-              .edit
-                font-size: 12px
-                color: #666
-
-              .delete
-                font-size: 12px
-                color: #666
-
-
           .exercise-form
-
 
             .exercise-form
               padding: 10px 20px
@@ -91,9 +75,11 @@
             .gymnastic-name
 
               input
-                width: 580px
+                width: 570px // - 20 за счет падинга с двух сторон
+                height: 40px
+                line-height: 40px
                 font-size: 15px
-                padding: 5px
+                padding: 0px 10px
                 border: 1px solid #f2f2f2
 
               .hints
@@ -117,8 +103,6 @@
                       color: #fff
 
                     &:hover
-                      background: #323a45
-                      color: #fff
                       cursor: pointer
 
 
@@ -137,6 +121,7 @@
 
                 input
                   width: 50px
+                  height: 30px
                   text-align: center
                   font-size: 13px
                   border: 1px solid #f2f2f2
