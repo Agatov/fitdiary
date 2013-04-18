@@ -1,53 +1,28 @@
 class ExercisesController < ApplicationController
 
-  before_filter :find_exercise, only: [:show, :edit, :update, :destroy]
+  respond_to :json
+
+  before_filter :find_exercise, only: [:show, :update, :destroy]
   before_filter :find_workout, only: :create
 
-  def index
-  end
-
+  # GET /exercises/1
   def show
-    @exercise = Exercise.find(params[:id])
-    respond_to do |format|
-      format.json {
-        render_for_api :full, json: @exercise
-      }
-    end
   end
 
-  def new
-  end
-
+  # POST /workouts/1/exercises
+  # @todo часть кода нужно унести в модель тренировки
   def create
-
-    @gymnastic = Gymnastic.create(name: params[:gymnastic_name])
-    @exercise = @workout.exercises.create(gymnastic: @gymnastic)
-
-    params[:exercise_sets].each do |exercise_set_params|
-      @exercise.add_set(exercise_set_params[:weight], exercise_set_params[:repeats])
-    end
-
-    respond_to do |format|
-      format.json {
-        render_for_api :full, json: @exercise
-      }
-    end
-
+    @exercise = @workout.add_exercise(params[:gymnastic_name])
   end
 
-  def edit
-  end
-
+  # PUT /exercises/1
   def update
     @exercise.gymnastic = Gymnastic.find_or_create_by_name(params[:gymnastic_name])
     @exercise.attributes = params[:exercise]
-    if @exercise.save
-      render json: {status: :ok}
-    else
-      render json: {status: :error}
-    end
+    @exercise.save
   end
 
+  # DELETE /exercises/1
   def destroy
   end
 

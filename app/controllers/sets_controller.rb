@@ -1,40 +1,29 @@
 class SetsController < ApplicationController
 
-  def index
-  end
+  respond_to :json
 
+  before_filter :find_exercise, only: :create
+  before_filter :find_set, only: [:show, :update, :destroy]
+
+
+  # GET /sets/1
   def show
   end
 
-  def new
-  end
-
+  # POST /exercises/1/sets
   def create
-    find_exercise
-
-    @set = @exercise.exercise_sets.build(params[:set])
-
-    if @set.save
-      render json: {status: :ok}
-    else
-      render json: {status: :error}
-    end
+    @set = ExerciseSet.create(params[:set])
+    @exercise.exercise_sets << @set
   end
 
-  def edit
-  end
 
+  # PUT /sets/1
   def update
-    find_set
-    if @set.update_attributes(params[:set])
-      render json: {status: :ok}
-    else
-      render json: {status: :error}
-    end
+    @set.update_attributes(params[:set])
   end
 
+  # DELETE /sets/1
   def destroy
-    find_set
     @set.destroy
     render json: {status: :ok}
   end

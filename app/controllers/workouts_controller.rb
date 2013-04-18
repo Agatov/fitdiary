@@ -1,25 +1,20 @@
 class WorkoutsController < ApplicationController
 
-  before_filter :find_workout, only: [:show, :edit, :update, :destroy]
-  before_filter :has_access?, only: [:edit, :update, :destroy]
+  respond_to :json
 
+  before_filter :find_workout, only: [:show, :update, :destroy]
+  before_filter :has_access?, only: [:update, :destroy]
+
+  # GET /workouts
   def index
     @workouts = current_user.workouts.includes(:exercises, {exercises: :exercise_sets}, {exercises: :gymnastic}).order("date desc, id desc")
-
-    respond_to do |format|
-      format.html { render }
-      format.json {
-        render_for_api :full, json: @workouts
-      }
-    end
   end
 
+  # GET /workouts/1
   def show
   end
 
-  def new
-  end
-
+  # POST /workouts
   def create
     @workout = current_user.workouts.create(date: Time.now.strftime('%Y-%m-%d'))
 
@@ -30,12 +25,12 @@ class WorkoutsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
+  # PUT /workouts/1
   def update
   end
 
+
+  # DELETE /workouts/1
   def destroy
     @workout.destroy
   end
