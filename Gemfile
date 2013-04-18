@@ -19,6 +19,8 @@ end
 gem 'sqlite3'
 gem 'mysql2',  :git => 'http://github.com/brianmario/mysql2.git'
 gem 'haml-rails'
+gem 'rabl'
+gem 'js-routes'
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 
 
