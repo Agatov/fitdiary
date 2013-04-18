@@ -1,0 +1,1 @@
+attributes :id, :date, :formatted_date

@@ -1,0 +1,1 @@
+attributes :id, :gymnastic_name

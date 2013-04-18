@@ -1,14 +1,8 @@
 !!! 5
 %html
   %head
-    = stylesheet_link_tag    "application", :media => "all"
+    = stylesheet_link_tag    'application', :media => 'all'
     = csrf_meta_tags
-    = javascript_include_tag "application"
+    = javascript_include_tag 'refactoring'
   %body
-    .topbar
-      .wrapper
-        #navbar
-          .add-workout
-            Добавить тренировку
-    .wrapper
-      = yield
+    = yield
