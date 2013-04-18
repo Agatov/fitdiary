@@ -1,14 +1,16 @@
 Fitdiary::Application.routes.draw do
 
-  root to: "workouts#index"
+  root to: 'application#index'
 
-  resources :workouts do
-    resources :exercises
+  resources :workouts, only: [:index, :show, :create, :update, :destroy] do
+    resources :exercises, only: :create
   end
 
-  resources :exercises do
-    resources :sets
+  resources :exercises, only: [:show, :update, :destroy] do
+    resources :sets, only: :create
   end
+
+  resources :sets, only: [:show, :update, :destroy]
 
 
   resources :gymnastics

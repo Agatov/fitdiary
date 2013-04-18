@@ -8,14 +8,7 @@ class Exercise < ActiveRecord::Base
   belongs_to :gymnastic
   belongs_to :workout
 
-  acts_as_api
-  include ApiV1::Exercise
-
   def gymnastic_name
     gymnastic.name
-  end
-
-  def add_set(weight, repeats)
-    exercise_sets.create(weight: weight, repeats: repeats)
   end
 end
