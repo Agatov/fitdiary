@@ -1,0 +1,35 @@
+.dialog-background
+
+.dialog
+  -#.header
+    Редактировать упраженение
+
+  .body
+    .exercise-form
+      .name
+
+      .sets
+
+      -#.buttons
+        .button.add-set
+          Добавить подход
+
+        .button.save
+          Сохранить
+
+        .button.delete
+          Удалить
+
+  .footer
+    .buttons
+      .button.delete
+        Удалить
+
+      .button.cancel
+        Отменить
+      .button.save
+        Сохранить
+
+
+      .button.add-set
+        Добавить
