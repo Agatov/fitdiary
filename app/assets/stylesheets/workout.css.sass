@@ -10,8 +10,8 @@
   letter-spacing: 1px
   padding: 0px 5px
 
-#workouts
-  margin-top: 80px
+#main-region
+  padding-top: 80px
   .workout
     width: 630px
     margin: 0px auto
@@ -35,135 +35,35 @@
       .exercises
         width: 630px
 
-        .exercise-container
+        .exercise
+          padding: 10px 20px
+          display: block
+          position: relative
+          cursor: pointer
           border-bottom: 1px solid #eaedf1
+          &:hover
+            background: #f9fafc
+          .name
+            height: 30px
+            font-size: 16px
+            font-weight: 400
+          .sets
+            margin-left: 0px
+            list-style: none
+            &:after
+              display: table
+              content: ""
+              clear: both
+            .set
+              float: left
+              margin-right: 5px
+              margin-bottom: 5px
+              .weight
+                border-right: 1px solid #fcfcfc
+                @include set_info
 
-          .exercise
-            padding: 10px 20px
-            display: block
-            position: relative
-            cursor: pointer
-            &:hover
-              background: #f9fafc
-            .name
-              height: 30px
-              font-size: 16px
-              font-weight: 400
-            .sets
-              margin-left: 0px
-              list-style: none
-              &:after
-                display: table
-                content: ""
-                clear: both
-              .set
-                float: left
-                margin-right: 5px
-                margin-bottom: 5px
-                .weight
-                  border-right: 1px solid #fcfcfc
-                  @include set_info
-
-                .repeats
-                  @include set_info
-
-          .exercise-form
-
-            .exercise-form
-              padding: 10px 20px
-
-            .gymnastic-name
-
-              input
-                width: 570px // - 20 за счет падинга с двух сторон
-                height: 40px
-                line-height: 40px
-                font-size: 15px
-                padding: 0px 10px
-                border: 1px solid #f2f2f2
-
-              .hints
-                position: relative
-
-                .gymnastics
-                  position: absolute
-                  top: 0px
-                  left: 0px
-                  background: #f9fafc
-                  box-shadow: 0px 0px 5px #ccc
-                  .gymnastic
-                    padding: 0px 20px
-                    width: 550px
-                    height: 40px
-                    line-height: 40px
-                    font-size: 14px
-
-                    &.selected
-                      background: #323a45
-                      color: #fff
-
-                    &:hover
-                      cursor: pointer
-
-
-
-
-            .sets-form
-              margin-top: 15px
-              .row
-                font-size: 10px
-                height: 45px
-                line-height: 45px
-                padding: 0px 15px
-
-                &:nth-child(odd)
-                  background: #f9fafc
-
-                input
-                  width: 50px
-                  height: 30px
-                  text-align: center
-                  font-size: 13px
-                  border: 1px solid #f2f2f2
-                  font-weight: 100
-                  color: #333
-                a
-                  color: #239ed9
-                  text-decoration: none
-                  font-size: 14px
-                  float: right
-
-
-            .buttons
-              margin-top: 20px
-              height: 50px
-
-              .button
-                float: left
-                margin-right: 5px
-                width: 190px
-                height: 40px
-                line-height: 40px
-                text-align: center
-                background: #f27935
-                font-size: 14px
-                font-weight: 200
-                color: #fff
-                cursor: pointer
-
-                &:hover
-                  background: #ff8038
-
-                &.add-set
-                  background: #1fbba6
-                  &:hover
-                    background: #27d4bd
-
-                &.delete
-                  background: #c80a05
-                  margin-right: 0px
-                  &:hover
-                    background: #ea0a05
+              .repeats
+                @include set_info
 
 
     .footer
