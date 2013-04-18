@@ -1,8 +1,0 @@
-= simple_form_for exercise do |f|
-  = f.association :gymnastic
-
-  = f.simple_fields_for :exercise_sets do |e|
-    = e.input :weight
-    = e.input :repeats
-
-  = f.submit
