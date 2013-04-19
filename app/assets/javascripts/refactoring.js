@@ -1,6 +1,7 @@
 //= require lib/jquery-1.9.1
 //= require lib/underscore
 //= require lib/backbone
+//= require lib/backbone-validation
 //= require lib/marionette
 //= require hamlcoffee
 //= require js-routes
