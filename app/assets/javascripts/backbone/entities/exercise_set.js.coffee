@@ -1,12 +1,16 @@
 @FitdiaryApp.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
-  #
-  # @todo - removed возможно правильнее делать не свойством, а методом. И запретить прямой доступ к свойству.
-  #
-
   class Entities.ExerciseSet extends Backbone.Model
 
     hidden: false
+
+    validation:
+      weight:
+        requiured: true
+        msg: 'blank weight'
+      repeats:
+        required: true
+        msg: 'blank repeats'
 
     url: ->
       if @isNew()

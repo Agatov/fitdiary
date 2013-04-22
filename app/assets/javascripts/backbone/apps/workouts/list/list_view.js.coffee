@@ -66,12 +66,3 @@
 
     onRender: ->
       @bodyRegion.show @exercises
-
-
-  class List.EmptyWorkouts extends Marionette.ItemView
-    template: 'workouts/list/templates/no_workouts'
-
-  class List.Workouts extends Marionette.CollectionView
-    itemView: List.Workout
-    emptyView: List.EmptyWorkouts
-    className: 'workouts'

@@ -1,0 +1,5 @@
+.header
+  .date
+    = @formatted_date
+.body
+  = @exercises_preview

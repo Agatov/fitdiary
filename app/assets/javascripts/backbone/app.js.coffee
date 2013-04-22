@@ -4,6 +4,7 @@
 
   App.addRegions
     mainRegion: '#main-region',
+    workoutsRegion: '#workouts-list-region',
     dialogRegion: '#dialog-region'
 
 

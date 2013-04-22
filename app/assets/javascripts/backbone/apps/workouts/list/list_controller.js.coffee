@@ -2,19 +2,22 @@
 
   List.Controller =
 
-    listWorkouts: ->
+    Show: (workout) ->
 
-      workouts = App.request 'workout:entities'
+      workoutView = @getWorkoutView(workout)
 
-      workoutsView = @getWorkoutsView workouts
-
-      workoutsView.on 'itemview:workout:edit:exercise:clicked', (iv, exercise) ->
+      workoutView.on 'workout:edit:exercise:clicked', (exercise) ->
         App.vent.trigger 'edit:exercise:clicked', exercise
 
-      workoutsView.on 'itemview:workout:add:exercise', (iv, workout) ->
+      workoutView.on 'workout:add:exercise', (workout) ->
         App.vent.trigger 'add:exercise', workout
 
-      App.mainRegion.show workoutsView
+      App.mainRegion.show workoutView
+
+
+    getWorkoutView: (workout) ->
+      new List.Workout
+        model: workout
 
     getWorkoutsView: (workouts) ->
       new List.Workouts

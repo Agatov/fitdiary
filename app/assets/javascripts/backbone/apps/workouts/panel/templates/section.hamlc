@@ -1,0 +1,8 @@
+%header
+  - models = _.toArray(this)
+  .month
+    = models[0].get('month')
+  .workouts-count
+    = models.length
+
+.workouts

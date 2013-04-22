@@ -1,6 +1,12 @@
 .title
-  = @formatted_date
-.body
+  .date
+    = @formatted_date
 
-.footer.add-exercise
-  добавить упражнение
+  .actions
+    .add-exercise.orange
+      Добавить упражнение
+    .delete.red
+      Удалить
+
+
+.body
