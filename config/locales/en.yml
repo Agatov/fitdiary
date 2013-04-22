@@ -7,3 +7,4 @@ en:
   date:
     formats:
       workout_title: "%d %B, %A"
+      only_month: "%B"
