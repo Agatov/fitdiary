@@ -29,19 +29,15 @@
       height: 40px
       line-height: 40px
       text-align: center
-      background: #323a45
+      background: $dark_blue
       color: #f1f1f3
-
       font-size: 16px
-
-    //.body
-      //padding: 15px
 
     .footer
       height: 80px
       width: 700px
-      background: #f9fafc
-      border-top: 1px solid #f1f2f4
+      background: #fafafa
+      border-top: 1px solid #f2f2f2
       position: absolute
       bottom: 0px
       left: 0px
@@ -55,36 +51,4 @@
           margin-top: 20px
           margin-right: 20px
           float: right
-          width: 110px
-          height: 40px
-          line-height: 40px
-          text-align: center
-          font-size: 14px
-          font-weight: 200
-          cursor: pointer
-          border-radius: 1px
-
-          background: #ebebeb
-
-          &:hover
-            background: #eee
-
-          &.save11
-            color: #fff
-            background: #f27935
-            &:hover
-              background: #ff8038
-
-          &.add-set
-            float: left
-            margin-left: 20px
-            color: #fff
-            background: #1fbba6
-            &:hover
-              background: #27d4bd
-
-          &.delete
-            color: #fff
-            background: #c80a05
-            &:hover
-              background: #ea0a05
+          @include flat_button
