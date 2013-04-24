@@ -17,12 +17,6 @@ class WorkoutsController < ApplicationController
   # POST /workouts
   def create
     @workout = current_user.workouts.create(date: Time.now.strftime('%Y-%m-%d'))
-
-    respond_to do |format|
-      format.json {
-        render_for_api :full, json: @workout, location: nil
-      }
-    end
   end
 
   # PUT /workouts/1

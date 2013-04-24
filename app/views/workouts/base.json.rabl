@@ -1,1 +1,1 @@
-attributes :id, :date, :formatted_date, :month
+attributes :id, :date, :day, :formatted_date, :month

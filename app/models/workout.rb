@@ -9,16 +9,14 @@ class Workout < ActiveRecord::Base
     I18n.localize date, format: :workout_title
   end
 
-  def month
-    I18n.localize date, format: :only_month
+  # Мы отдаем день, чтобы по нему соритровать коллекцию, отображающую тренировки за месяц.
+  # Скорее всего день можно получать уже и на клиенте, исходя из даты, но так пока быстрее.
+  def day
+    date.strftime '%d'
   end
 
-  def exercises_preview
-    gymnastics = exercises.map {|e| e.gymnastic_name}
-    names = gymnastics.join(', ')
-
-    return "#{names.slice(0, 100)}..." if names.length > 100
-    names
+  def month
+    I18n.localize date, format: :only_month
   end
 
   # @param [String] gymnastic_name
