@@ -6,10 +6,12 @@
 
     validation:
       weight:
-        requiured: true
-        msg: 'blank weight'
+        required: true
+        min: 1
+        msg: 'incorrect weight'
       repeats:
         required: true
+        min: 1
         msg: 'blank repeats'
 
     url: ->
@@ -33,7 +35,8 @@
 
     revert: ->
       _.each @changedAttributes(), (attributeValue, attributeName) =>
-        @set(attributeName, @previous(attributeName))
+        unless attributeName == 'id'
+          @set(attributeName, @previous(attributeName))
 
 
 
@@ -60,6 +63,14 @@
       _.filter @models, (model) ->
         (model.isNew() and !model.hasChanged())
 
+    getNewModels: ->
+      _.filter @models, (model) ->
+        model.isNew()
+
+    getPresentModels: ->
+      _.filter @models, (model) ->
+        !model.isNew()
+
     saveChanged: ->
       _.each @getChangedModels(), (model) ->
         model.save()
@@ -76,9 +87,25 @@
       _.each  @getHiddenModels(), (model) ->
         model.destroy()
 
-    revert: ->
-      _.each @models, (model) ->
-        model.revert()
+    destroyNewModels: ->
+      model.destroy() for model in @getNewModels()
+      @trigger 'new:models:destroyed'
 
-      _.each @model, (model) ->
-        model.unhide() if @model.isHidden()
+    revert: ->
+      _.each @getPresentModels(), (model) =>
+          model.revert()
+
+      _.each @models, (model) ->
+        model.unhide() if model.isHidden()
+
+
+    validate: ->
+      model.validate() for model in @models
+
+    # @todo - кривая какая-то реализация ;)
+    isValid: ->
+      invalidModel = @find (model) ->
+        !model.isValid()
+
+      return true if invalidModel == undefined
+      false

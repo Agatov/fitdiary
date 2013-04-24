@@ -66,6 +66,14 @@
       'keydown input': 'inputKeydownHandler'
       'keyup input': 'inputKeyupHandler'
 
+    initialize: ->
+
+      @model.on 'validated:invalid', (model, errors) =>
+        @ui.name.addClass('invalid')
+
+      @model.on 'validated:valid', (model) =>
+        @ui.name.removeClass('invalid')
+
 
     inputKeydownHandler: (e) ->
       if e.keyCode == 40 # down key
@@ -129,12 +137,24 @@
       @model.on 'hide', =>
         @$el.hide()
 
+      @model.on 'validated:invalid', (model, errors) =>
+        @$el.addClass('invalid')
+
+      @model.on 'validated:valid', (model) =>
+        @$el.removeClass('invlalid')
+
     check_weight_changed: ->
-      @model.set({weight: parseFloat(@ui.weight.val())})
+      if @ui.weight.val()
+        @model.set({weight: parseFloat(@ui.weight.val())})
+      else
+        @model.set({weight: ''})
 
 
     check_repeats_changed: ->
-      @model.set({repeats: parseInt(@ui.repeats.val())})
+      if @ui.repeats.val()
+        @model.set({repeats: parseInt(@ui.repeats.val())})
+      else
+        @model.set({repeats: ''})
 
 
 

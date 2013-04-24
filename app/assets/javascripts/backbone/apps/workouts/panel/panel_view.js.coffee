@@ -4,14 +4,25 @@
     template: 'workouts/panel/templates/workout'
     className: 'workout'
 
+    modelEvents:
+      'shown': -> @trigger 'workout:shown', @model
+
     events: ->
-      'click': -> @trigger 'workout:clicked', @model
+      'click': 'handleClick'
+
+    initialize: ->
+      @model.exercises.on 'add', => @render()
+      @model.exercises.on 'change', => @render()
 
     markAsSelected: ->
       @$el.addClass 'selected'
 
     unselect: ->
       @$el.removeClass 'selected'
+
+    handleClick: ->
+      @trigger 'workout:clicked', @model
+      @trigger 'workout:shown', @model
 
   class Panel.WorkoutSection extends Marionette.CompositeView
     template: 'workouts/panel/templates/section'
@@ -21,6 +32,11 @@
 
     initialize: ->
       @collection = new Backbone.Collection _.toArray(@model.attributes)
+      @collection.comparator = (workout) ->
+        - parseInt workout.get('day')
+      @collection.sort()
+
+
 
   class Panel.WorkoutBar extends Marionette.CompositeView
     template: 'workouts/panel/templates/bar'
@@ -28,7 +44,10 @@
     itemViewContainer: '.sections'
     className: 'panel'
 
-    selectedWorkout: null
+    selectedWorkoutView: null
+
+    events:
+      'click .add-workout': -> @trigger 'add:workout'
 
     initialize: ->
       sections = @collection.groupBy (model) ->
@@ -36,15 +55,17 @@
 
       @collection = new Backbone.Collection _.toArray(sections)
 
-      @.on 'itemview:itemview:workout:clicked', (iv, iiv, workout) =>
-        @selectWorkout iiv
+      @on 'itemview:itemview:workout:clicked', (iv, iiv, workout) =>
         @trigger 'workout:clicked', workout
 
+      @on 'itemview:itemview:workout:shown', (iv, iiv, workout) =>
+        @selectWorkout iiv
 
-    selectWorkout: (workout) ->
-      if @selectedWorkout
-        @selectedWorkout.unselect()
 
-      workout.markAsSelected()
-      @selectedWorkout = workout
+    selectWorkout: (workoutView) ->
+      if @selectedWorkoutView
+        @selectedWorkoutView.unselect()
+
+      workoutView.markAsSelected()
+      @selectedWorkoutView = workoutView
 

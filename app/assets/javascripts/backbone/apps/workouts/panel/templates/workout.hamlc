@@ -2,4 +2,4 @@
   .date
     = @formatted_date
 .body
-  = @exercises_preview
+  = @gymnastic_names_preview

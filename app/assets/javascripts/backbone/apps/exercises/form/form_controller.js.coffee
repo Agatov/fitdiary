@@ -32,8 +32,8 @@
         exercise.destroy()
       else
         exercise.revert()
+        exercise.sets.destroyNewModels()
         exercise.sets.revert()
-
 
     Destroy: (exercise) ->
 
@@ -57,8 +57,14 @@
 
 
       formView.on 'exercise:form:save', (exercise) ->
-        App.vent.trigger 'close:exercise:form'
-        App.vent.trigger 'save:exercise', exercise
+
+        exercise.validate()
+        exercise.sets.validate()
+
+        if exercise.isValid() and exercise.sets.isValid()
+          App.vent.trigger 'close:exercise:form'
+          App.vent.trigger 'save:exercise', exercise
+
 
       formView.on 'exercise:form:cancel:changes', (exercise) ->
         App.vent.trigger 'close:exercise:form'
@@ -68,6 +74,9 @@
       formView.on 'exercise:form:add:set', (exercise) =>
         lastSetView = formView.getLastSet()
         exercise.addSet lastSetView.ui.weight.val(), lastSetView.ui.repeats.val()
+
+      formView.on 'exercise:form:destroy', (exercise) =>
+        App.vent.trigger 'destroy:exercise', exercise
 
       formView.on 'exercise:form:remove:set', (exercise, set) ->
         set.hide()
