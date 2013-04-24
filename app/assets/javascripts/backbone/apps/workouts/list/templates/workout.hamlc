@@ -3,9 +3,9 @@
     = @formatted_date
 
   .actions
-    .add-exercise.orange
+    .add-exercise
       Добавить упражнение
-    .delete.red
+    .delete
       Удалить
 
 
