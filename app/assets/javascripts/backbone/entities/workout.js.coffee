@@ -8,7 +8,7 @@
       if @isNew()
         '/workouts'
       else
-        "/workotus/#{@get('id')}"
+        "/workouts/#{@get('id')}"
 
     initialize: ->
       @exercises = new Entities.Exercises(@get('exercises'), workout: @)

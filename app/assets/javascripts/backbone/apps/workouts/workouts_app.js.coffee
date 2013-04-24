@@ -35,6 +35,9 @@
   App.vent.on 'add:workout', ->
     API.addWorkout()
 
+  App.vent.on 'destroy:workout', (workout) ->
+    API.destroyWorkout(workout)
+
 
 
 
