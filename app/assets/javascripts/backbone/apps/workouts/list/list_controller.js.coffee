@@ -13,7 +13,7 @@
         App.vent.trigger 'add:exercise', workout
 
       workoutView.on 'destroy:workout', (workout) ->
-        App.vent.trigger 'destroy:workout', workout
+        App.vent.trigger 'show:workout:destroy:dialog', workout
 
       # Выкидываем собитие, которое ловит панель с тренировками и выделяет показанную тренировку
       workout.trigger 'shown'

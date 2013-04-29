@@ -1,0 +1,12 @@
+.dialog-background
+.small-dialog
+  .header
+
+  .body
+    Вы действительно хотите удалить эту тренировку?
+
+  .footer
+    .button.cancel
+      Отмена
+    .button.red.destroy
+      Удалить

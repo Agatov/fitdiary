@@ -26,6 +26,13 @@
     createWorkout: (workout) ->
       WorkoutsApp.Form.Controller.Create(workout)
 
+    showWorkoutDestroyDialog: (workout) ->
+      WorkoutsApp.Dialogs.Controller.showWorkoutDestroyDialog(workout)
+
+    closeWorkoutDestroyDialog: ->
+      WorkoutsApp.Dialogs.Controller.closeWorkoutDestroyDialog()
+
+
   class WorkoutsApp.Router extends Marionette.AppRouter
     appRoutes:
       'workouts': 'listWorkouts'
@@ -55,6 +62,14 @@
 
   App.vent.on 'create:workout', (workout) ->
     API.createWorkout(workout)
+
+
+  App.vent.on 'show:workout:destroy:dialog', (workout) ->
+    API.showWorkoutDestroyDialog workout
+
+
+  App.vent.on 'close:workout:destroy:dialog', ->
+    API.closeWorkoutDestroyDialog()
 
 
 
