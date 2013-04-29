@@ -16,7 +16,7 @@ class WorkoutsController < ApplicationController
 
   # POST /workouts
   def create
-    @workout = current_user.workouts.create(date: Time.now.strftime('%Y-%m-%d'))
+    @workout = current_user.workouts.create(params[:workout])
   end
 
   # PUT /workouts/1

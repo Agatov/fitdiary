@@ -1,0 +1,9 @@
+.arrow-up
+  &nbsp;
+.content
+  .my-calendar
+  .footer
+    .button.cancel.red
+      Отменить
+    .button.save.green
+      Создать

@@ -1,0 +1,53 @@
+.my-calendar
+  witdh: 100%
+
+.calendar
+  padding-top: 25px
+  margin: 0px auto
+  margin-bottom: 65px
+  width: 300px
+  table
+    border: none
+
+  thead
+    border: none
+    background: none
+    color: #fff
+
+  .go-forward
+    border: none
+
+  .title
+    border: none
+
+  a
+    color: #e4e3e9
+
+  .row.days
+
+    td
+      border: none
+      background: none
+      color: #aaa
+
+  .cell
+    border: none
+    background: none
+    padding: 0px 5px
+
+    &.inactive
+      background: none
+      color: $medium_blue
+
+    &.selected
+
+      a
+        background: $nice_orange
+        &:hover
+          background: $nice_orange
+
+    a
+      border-radius: 50px
+      &:hover
+        color: #fff
+        background: $nice_yellow

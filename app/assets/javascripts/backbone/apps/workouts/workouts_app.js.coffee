@@ -17,6 +17,15 @@
     destroyWorkout: (workout) ->
       WorkoutsApp.List.Controller.Destroy(workout)
 
+    showNewWorkoutForm: ->
+      WorkoutsApp.Form.Controller.Show()
+
+    closeNewWorkoutForm: ->
+      WorkoutsApp.Form.Controller.Close()
+
+    createWorkout: (workout) ->
+      WorkoutsApp.Form.Controller.Create(workout)
+
   class WorkoutsApp.Router extends Marionette.AppRouter
     appRoutes:
       'workouts': 'listWorkouts'
@@ -37,6 +46,15 @@
 
   App.vent.on 'destroy:workout', (workout) ->
     API.destroyWorkout(workout)
+
+  App.vent.on 'show:new:workout:form', ->
+    API.showNewWorkoutForm()
+
+  App.vent.on 'close:new:workout:form', ->
+    API.closeNewWorkoutForm()
+
+  App.vent.on 'create:workout', (workout) ->
+    API.createWorkout(workout)
 
 
 

@@ -1,6 +1,58 @@
 #dialog-region
   diplay: none
 
+  .workout-form-dialog
+    z-index: 2
+    position: absolute
+    top: 55px
+    left: 15.5%
+    width: 350px
+
+
+    .header-transparent
+      height: 20px
+      width: 350px
+
+    .arrow-up
+      margin: 0px auto
+      width: 0px
+      height: 0px
+      border-left: 20px solid transparent
+      border-right: 20px solid transparent
+      border-bottom: 20px solid $dark_blue
+
+    .content
+      background: $dark_blue
+      position: relative
+      padding-bottom: 1px
+      box-shadow: 0 0 10px rgba(81, 81, 81, 0.55)
+
+      .footer
+        position: absolute
+        bottom: 0px
+        left: 0px
+        width: 350px
+        height: 60px
+
+        border-top: 1px solid $medium_blue
+
+
+        .button
+          @include flat_button
+          margin-top: 10px
+          padding: 0px
+          width: 80px
+
+
+          &.save
+            float: right
+            margin-right: 10px
+
+          &.cancel
+            float: right
+            margin-right: 10px
+
+
   .dialog-background
     width: 100%
     height: 100%

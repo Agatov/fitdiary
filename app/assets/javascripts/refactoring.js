@@ -4,6 +4,8 @@
 //= require lib/backbone-validation
 //= require lib/marionette
 //= require hamlcoffee
+//= require lib/laconic
+//= require lib/backbone-ui
 //= require js-routes
 //= require_tree ./backbone/config
 //= require backbone/app

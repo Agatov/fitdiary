@@ -50,6 +50,11 @@
       'click .add-workout': -> @trigger 'add:workout'
 
     initialize: ->
+
+      @collection.comparator = (workout) ->
+        - parseInt workout.get('month_number')
+      @collection.sort()
+
       sections = @collection.groupBy (model) ->
         model.get('month')
 

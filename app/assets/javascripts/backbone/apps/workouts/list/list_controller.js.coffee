@@ -20,17 +20,6 @@
 
       App.mainRegion.show workoutView
 
-
-    Create: ->
-      workout = App.request 'new:workout'
-      workouts = App.request 'workout:present:entities'
-
-      workout.save null,
-        success: ->
-          workouts.add workout
-          App.vent.trigger 'render:workouts'
-          App.vent.trigger 'show:workout', workout
-
     Destroy: (workout) ->
 
       workout.destroy()

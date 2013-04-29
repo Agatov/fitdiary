@@ -31,4 +31,5 @@
         App.vent.trigger 'show:workout', workout
 
       workoutsView.on 'add:workout', (workout) ->
-        App.vent.trigger 'add:workout', workout
+#        App.vent.trigger 'add:workout', workout
+        App.vent.trigger 'show:new:workout:form'

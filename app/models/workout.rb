@@ -15,6 +15,10 @@ class Workout < ActiveRecord::Base
     date.strftime '%d'
   end
 
+  def month_number
+    (date.strftime '%m').to_i
+  end
+
   def month
     I18n.localize date, format: :only_month
   end
