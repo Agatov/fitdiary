@@ -11,8 +11,8 @@
     showWorkout: (workout) ->
       WorkoutsApp.List.Controller.Show(workout)
 
-    addWorkout: ->
-      WorkoutsApp.List.Controller.Create()
+    createWorkout: (workout) ->
+      WorkoutsApp.Form.Controller.Create(workout)
 
     destroyWorkout: (workout) ->
       WorkoutsApp.List.Controller.Destroy(workout)
@@ -22,9 +22,6 @@
 
     closeNewWorkoutForm: ->
       WorkoutsApp.Form.Controller.Close()
-
-    createWorkout: (workout) ->
-      WorkoutsApp.Form.Controller.Create(workout)
 
     showWorkoutDestroyDialog: (workout) ->
       WorkoutsApp.Dialogs.Controller.showWorkoutDestroyDialog(workout)
@@ -48,8 +45,8 @@
   App.vent.on 'show:workout', (workout) ->
     API.showWorkout workout
 
-  App.vent.on 'add:workout', ->
-    API.addWorkout()
+  App.vent.on 'create:workout', (workout) ->
+    API.createWorkout(workout)
 
   App.vent.on 'destroy:workout', (workout) ->
     API.destroyWorkout(workout)
@@ -60,13 +57,8 @@
   App.vent.on 'close:new:workout:form', ->
     API.closeNewWorkoutForm()
 
-  App.vent.on 'create:workout', (workout) ->
-    API.createWorkout(workout)
-
-
   App.vent.on 'show:workout:destroy:dialog', (workout) ->
     API.showWorkoutDestroyDialog workout
-
 
   App.vent.on 'close:workout:destroy:dialog', ->
     API.closeWorkoutDestroyDialog()
