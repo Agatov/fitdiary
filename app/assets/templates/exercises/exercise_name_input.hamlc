@@ -1,2 +1,0 @@
-%input{type: 'text', name: 'gymnastic_name', value: @gymnastic_name, placeholder: 'Название упражнения'}
-.hints

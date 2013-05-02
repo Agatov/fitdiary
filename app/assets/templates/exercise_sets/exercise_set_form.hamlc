@@ -1,4 +1,0 @@
-%input{type: 'text', name: 'weight', size: '10', value: @weight, placeholder: 'Вес'}
-x
-%input{type: 'text', name: 'repeats', size: '10', value: @repeats, placeholder: 'Повторы'}
-%a.remove-set{href: '#'} удалить
